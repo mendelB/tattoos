@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tattoo: one
+  color: one
+
+two:
+  tattoo: two
+  color: two

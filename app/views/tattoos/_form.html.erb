@@ -1,0 +1,36 @@
+<%= form_for(tattoo) do |f| %>
+  <% if tattoo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(tattoo.errors.count, "error") %> prohibited this tattoo from being saved:</h2>
+
+      <ul>
+      <% tattoo.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :user_id %>
+    <%= f.text_field :user_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <%= f.collection_select :design_id, Design.all, :id, :name, {include_blank: 'Select a design'} %><br>
+  
+  <% if !tattoo.persisted? %>
+  <%= f.fields_for :design do |d| %>
+    Or Create New Design:
+    <%= d.label :name %>
+    <%= d.text_field :name %>
+  <% end %>
+  <% end %>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
