@@ -5,6 +5,10 @@ class Tattoo < ApplicationRecord
   has_many :colors, through: :tattoos_colors
 
   def design=(hash)
-    self.design_id = Design.find_or_create_by(hash).id
+    self.design_id = (Design.find_or_create_by(hash).id)
+  end
+
+  def colors_attributes=(hash)
+    binding.pry 
   end
 end
