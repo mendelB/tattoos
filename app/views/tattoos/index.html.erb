@@ -14,7 +14,7 @@
   <tbody>
     <% @tattoos.each do |tattoo| %>
       <tr>
-        <td><%= tattoo.user %></td>
+        <td><%= link_to tattoo.user.name, user_path(tattoo.user) %></td>
         <td><%= tattoo.title %></td>
         <td><%= link_to 'Show', tattoo %></td>
         <td><%= link_to 'Edit', edit_tattoo_path(tattoo) %></td>

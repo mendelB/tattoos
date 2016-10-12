@@ -14,9 +14,17 @@
   <strong>Design:</strong>
   <%= @tattoo.design.name %>
 </p>
-<% @tattoo.colors.each do |c| %>
-<%= c.name %>
-<% end %>
+  
+<p>
+  <strong>Colors:</strong>
+  <ul>
+    <% @tattoo.colors.each do |c| %>
+    <li>
+      <%= c.name %>
+    </li> 
+    <% end %>
+  </ul>
+</p>
 
 <%= link_to 'Edit', edit_tattoo_path(@tattoo) %> |
 <%= link_to 'Back', tattoos_path %>
