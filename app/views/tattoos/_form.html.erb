@@ -21,20 +21,6 @@
     <%= f.text_field :title %>
   </div>
 
-  <%= f.collection_select :design_id, Design.all, :id, :name, {include_blank: 'Select a design'} %><br>
-
-  <%= f.fields_for :design do |d| %>
-    OR Create a Design
-    <%= d.label :name %>
-    <%= d.text_field :name %>
-  <% end %>
-  <br>
-  <%= f.collection_check_boxes :color_ids, Color.all, :id, :name %>
-
-  <%= f.fields_for :colors do |c| %>
-    <%= c.label :name %>
-    <%= c.text_field :name %>
-  <% end %>
 
   <div class="actions">
     <%= f.submit %>

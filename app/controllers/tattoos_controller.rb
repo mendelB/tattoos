@@ -70,6 +70,6 @@ class TattoosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def tattoo_params
-      params.require(:tattoo).permit(:user_id, :title, :design_id, color_ids: [], :design => [:name], colors_attributes: [:name])
+      params.require(:tattoo).permit(:user_id, :title)
     end
 end
