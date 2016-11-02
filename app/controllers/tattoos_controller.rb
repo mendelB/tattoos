@@ -15,7 +15,7 @@ class TattoosController < ApplicationController
   # GET /tattoos/new
   def new
     @tattoo = Tattoo.new
-    10.times {  @tattoo.colors.build}
+    3.times {  @tattoo.colors.build}
   end
 
   # GET /tattoos/1/edit
@@ -70,6 +70,6 @@ class TattoosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def tattoo_params
-      params.require(:tattoo).permit(:user_id, :title)
+      params.require(:tattoo).permit(:user_id, :title, :design_id, :new_design=> [:name], color_ids: [], colors_attributes: [:name] )
     end
 end

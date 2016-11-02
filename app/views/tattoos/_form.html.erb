@@ -17,8 +17,33 @@
   </div>
 
   <div class="field">
+    <%= f.collection_select :design_id, Design.all, :id, :name, {:include_blank => 'Pick a Design'}%>
+  </div>
+
+  <div class="field">
+    Add your colors! <br/>
+    <%= f.collection_check_boxes :color_ids, Color.all, :id, :name %>
+  </div>
+
+  <div class="field">
     <%= f.label :title %>
     <%= f.text_field :title %>
+  </div>
+
+  <div class="field">
+    Create New Design
+    <%= f.fields_for :new_design do |d| %>
+      <%= d.label :name %>
+      <%= d.text_field :name %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    Create New Colors
+    <%= f.fields_for :colors do |c| %>
+      <%= c.label :name %>
+      <%= c.text_field :name %>
+    <% end %>
   </div>
 
 
