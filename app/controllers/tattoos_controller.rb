@@ -15,7 +15,6 @@ class TattoosController < ApplicationController
   # GET /tattoos/new
   def new
     @tattoo = Tattoo.new
-    10.times {  @tattoo.colors.build}
   end
 
   # GET /tattoos/1/edit
